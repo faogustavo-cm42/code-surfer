@@ -20,7 +20,9 @@ class InnerCodeSurfer extends React.Component {
     const { update, index } = props.deck;
     const parsedSteps = this.parseSteps(props.steps);
     const maxStep = parsedSteps.length - 1;
-    update(updaters.setSteps(index, maxStep));
+    if (update) {
+      update(updaters.setSteps(index, maxStep));
+    }
   }
 
   shouldComponentUpdate(nextProps) {
